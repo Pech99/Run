@@ -1,1 +1,0 @@
-proc.exe; lable=cmd; lable2=cmd

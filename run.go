@@ -2,32 +2,18 @@ package main
 
 import (
 	"fmt"
-	"os"
 
-	sys "golang.org/x/sys/windows"
+	"github.com/Pech99/Run/us32"
 )
 
 func main() {
-
+	hwndold := us32.GetWindow("GetForegroundWindow")
 	for {
-		process, err := os.FindProcess(int(sys.GetForegroundWindow()))
-		if err != nil {
-			fmt.Println(err)
-			return
+		if hwnd := us32.GetWindow("GetForegroundWindow"); hwnd != 0 && hwndold != hwnd {
+			text := us32.GetWindowText(hwnd)
+			pid, _ := us32.GetWindowThreadProcessId(hwnd)
+			fmt.Print("hwnd: ", hwnd, "\t - pid: ", pid, "\t- window: ", text, "\n")
+			hwndold = hwnd
 		}
-
-		fmt.Println(process)
 	}
 }
-
-func selectRoutin() []string {
-
-	return nil
-
-}
-
-/*
-C:\Users\Vitto\go\pkg\src\golang.org\x\sys
-C:\Users\Vitto\go\src\golang.org\x\sys
-C:\Program Files\Go\src\golang.org\x\sys
-*/
