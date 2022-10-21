@@ -1,19 +1,11 @@
 # commento monoriga con #
 ; commento monoriga con ;
 
-programma 1 senza espressioni reolari
-    la1=act_a1
-    la2=act_a2
-    la3=act_a3
-
 +[a-zA-Z0-9-_. \t]*Visual Studio Code
-    la1=act_b1
-    la2=act_b2
-    la3=act_b3
+    la1=info
+    la2=SYSTEMINFO
+    la3=tree
 
-\+programma 3 senza espressioni regolari ma inizia con +
-    lb1=act_c1
-    lb2=act_c3
 
 DEFAULT
     la1=act_d1

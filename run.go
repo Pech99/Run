@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"regexp"
 	"strings"
 	"unicode"
@@ -12,7 +13,10 @@ import (
 	"github.com/Pech99/Run/us32"
 )
 
-const confFile string = "config.txt"
+//complile: go build -ldflags "-H windowsgui"
+//hiden console
+
+const confFile string = "./config.txt"
 
 func main() {
 
@@ -24,12 +28,27 @@ func main() {
 	}
 	lable := os.Args[1]
 
+	fmt.Println("title:", title, "\nlable:", lable)
+
 	comand, err := getComand(title, lable)
 	if err != nil {
+		fmt.Println("err:", err)
 		return
 	}
 
-	fmt.Println("com:", comand)
+	if strings.ToUpper(strings.TrimSpace(comand)) == "INFO" {
+		info := fmt.Sprint("hwnd: ", hwnd, "\ntitle: ", title)
+		us32.MessageBox(0, info, "Foreground Window Info", 0)
+		return
+	}
+
+	out, err := exeComand(comand)
+	if err != nil {
+		fmt.Println("err:", err)
+		return
+	}
+
+	fmt.Println("out:", out)
 
 }
 
@@ -89,4 +108,18 @@ func titleCheck(row string, title string) bool {
 func regCheck(exp string, text string) bool {
 	re := regexp.MustCompile(exp)
 	return re.Match([]byte(text))
+}
+
+func exeComand(comand string) (string, error) {
+	cmdargs := strings.Fields(comand)
+	var out []byte
+	var err error
+
+	if len(cmdargs) > 1 {
+		out, err = exec.Command(cmdargs[0], cmdargs[1:]...).Output()
+	} else {
+		out, err = exec.Command(cmdargs[0]).Output()
+	}
+
+	return string(out), err
 }
