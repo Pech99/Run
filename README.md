@@ -6,7 +6,7 @@ Il programma ha un funzionamento semplice, una volta avviato accede al titolo de
 finestra in primo piano e procede al confronto tra i nomi dei diversi profili.
 Trovata una corrispondenza esegue l'azione corrispondente alla lable passata da linea di comando.
 
-## Profili
+### Profili e Comandi
 I profili vanno aggiunti nel file <code>config.txt</code>
 I profili sono formati da un nome e da delle opzioni indentate da del white space.
 Ogni azione ha una lable seguita da <code>=</code> e da un comando.
@@ -18,12 +18,11 @@ esistono 3 diversi profili:
    il nome inizia con il <code>+</code> (questo carattere non fa parte dell'espressione regolare)
 3. profilo di <code>DEFAULT</code> (profilo applicato nel caso in cui non vi sia una corrsopndenza)
 
-## Commenti
-Nel file è possibile esprimere commenti con un <code>#</code> o un <code>;</code>
-all'inizio della riga.
-
 Il comando <code>info</code> visualizza una finestra contenente le informazioni delle finestra in primo piano.
 
+### Commenti
+Nel file è possibile esprimere commenti con un <code>#</code> o un <code>;</code>
+all'inizio della riga.
 
 ## Exemple config.txt
 ```txt
