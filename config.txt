@@ -8,23 +8,29 @@
 # ogni azione ha una lable seguita da = e da un comando
 # il comando info visualizza una finestra contenente le informazioni delle finestra in primo piano
 
-# esistono 3 diversi profili:
+# esistono 4 diversi profili:
 
 # profilo semplice (viene fatto il match diretto tra il nome ed il titolo della finestra)
 impostazioni
-    la1=info
-    la2=info
-    la3=info
+    la1=.\myexe.exe arg1 arg2 arg3
+    la2=.\myexe.exe arg1 arg2 arg3
+    la3=.\myexe.exe arg1 arg2 arg3
 
 # profilo regExp (il match viene fatto tramite corrispndenza con espressioni regolai)
 # il nome inizia con il + (questo carattere non fa parte dell'espressione regolare)
 +[a-zA-Z0-9-_. \t]*Visual Studio Code
-    la1=info
-    la2=info
-    la3=info
+    la1=.\myexe.exe arg1 arg2 arg3
+    la2=.\myexe.exe arg1 arg2 arg3
+    la3=.\myexe.exe arg1 arg2 arg3
+
+# profilo className (viene fatto il match diretto tra il nome ed il nome della classe)
+@Notepad
+    la1=.\myexe.exe arg1 arg2 arg3
+    la2=.\myexe.exe arg1 arg2 arg3
+    la3=.\myexe.exe arg1 arg2 arg3
 
 # profilo di DEFAULT (profilo applicato nel caso in cui non vi sia una corrsopndenza)
 DEFAULT
-    la1=info
-    la2=info
+    la1=.\myexe.exe arg1 arg2 arg3
+    la2=.\myexe.exe arg1 arg2 arg3
     la3=info

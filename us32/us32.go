@@ -20,6 +20,7 @@ var (
 	procGetWindowTextLength = user32.MustFindProc("GetWindowTextLengthW")
 	procGetForegroundWindow = user32.MustFindProc("GetForegroundWindow")
 	procMessageBox          = user32.MustFindProc("MessageBoxW")
+	procGetClassName        = user32.MustFindProc("GetClassNameW")
 	//procGetWindowThreadProcessId = user32.MustFindProc("GetWindowThreadProcessId")
 )
 
@@ -64,6 +65,16 @@ func MessageBox(hwnd HWND, title, caption string, flags uint) int {
 	)
 
 	return int(ret)
+}
+
+func GetClassNameW(hwnd HWND) string {
+	buf := make([]uint16, 255)
+	procGetClassName.Call(
+		uintptr(hwnd),
+		uintptr(unsafe.Pointer(&buf[0])),
+		uintptr(255))
+
+	return syscall.UTF16ToString(buf)
 }
 
 /*

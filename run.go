@@ -22,6 +22,7 @@ func main() {
 
 	hwnd := us32.GetForegroundWindow()
 	title := us32.GetWindowText(us32.HWND(hwnd))
+	class := us32.GetClassNameW(us32.HWND(hwnd))
 
 	if len(os.Args) < 2 {
 		return
@@ -30,14 +31,14 @@ func main() {
 
 	fmt.Println("title:", title, "\nlable:", lable)
 
-	comand, err := getComand(title, lable)
+	comand, err := getComand(title, class, lable)
 	if err != nil {
 		fmt.Println("err:", err)
 		return
 	}
 
 	if strings.ToUpper(strings.TrimSpace(comand)) == "INFO" {
-		info := fmt.Sprint("hwnd: ", hwnd, "\ntitle: ", title)
+		info := fmt.Sprint("hwnd: ", hwnd, "\nclass: ", class, "\ntitle: ", title)
 		us32.MessageBox(0, info, "Foreground Window Info", 0)
 		return
 	}
@@ -52,7 +53,7 @@ func main() {
 
 }
 
-func getComand(title string, lable string) (string, error) {
+func getComand(title string, class string, lable string) (string, error) {
 	file, err := ioutil.ReadFile(confFile)
 	if err != nil {
 		return "", err
@@ -67,7 +68,7 @@ func getComand(title string, lable string) (string, error) {
 	for i, row = range rows {
 		if len(row) < 1 || unicode.IsSpace(rune(row[0])) || row[0] == '#' || row[0] == ';' {
 			continue
-		} else if titleCheck(row, title) {
+		} else if corrCheck(row, title, class) {
 			break
 		}
 	}
@@ -90,19 +91,25 @@ func getComand(title string, lable string) (string, error) {
 	return "", nil
 }
 
-func titleCheck(row string, title string) bool {
+func corrCheck(row string, title string, class string) bool {
 	if strings.ToUpper(strings.TrimSpace(row)) == "DEFAULT" {
 		return true
 	}
 
+	target := title
+	if row[0] == '@' {
+		target = class
+		row = row[1:]
+	}
+
 	if row[0] == '+' {
-		return regCheck(row[1:], title)
+		return regCheck(row[1:], target)
 	}
 
 	if row[0] == '\\' {
-		title = title[1:]
+		target = target[1:]
 	}
-	return row == title
+	return row == target
 }
 
 func regCheck(exp string, text string) bool {
