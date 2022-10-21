@@ -56,10 +56,11 @@ DEFAULT
 Installazione
 ==========
 per comodità si consiglia di creare dei collegamenti che avviano il programma con gli argomenti da linea di comando.
-1. Creare una cartella contenente il programma, ed il file <code>config.txt</code>.
-2. creare un collegamento al programma
-3. entrare nelle proprietà, sotto il tab <code>collegamento</code>
-4. modificare la voce <code>Destinazione</code> aggiungendo gli argomenti desidearati.
+1. scarica l'ultima versione [qui](https://github.com/Pech99/Run/raw/master/Run.exe)
+2. Creare una cartella contenente il programma, ed il file <code>config.txt</code>.
+3. creare un collegamento al programma
+4. entrare nelle proprietà, sotto il tab <code>collegamento</code>
+5. modificare la voce <code>Destinazione</code> aggiungendo gli argomenti desidearati.
 
 
 
