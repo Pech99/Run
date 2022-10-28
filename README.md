@@ -49,9 +49,8 @@ Lettore multimediale
 # profilo di DEFAULT
 DEFAULT
 	sing=.\Click <SUPER>
-	dopp=.\Click <SUPER> <SHIFT> <S>
-	pres=explorer.exe shell:appsFolder\Microsoft.Office.OneNote_8wekyb3d8bbwe!microsoft.onenoteim
-
+	dopp=info
+	pres=explorer.exe
 ```
 
 Installazione
