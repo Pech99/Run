@@ -29,28 +29,29 @@ all'inizio della riga.
 ## Exemple config.txt
 ```txt
 # profilo semplice
-impostazioni
-    la1=.\myexe.exe arg1 arg2 arg3
-    la2=.\myexe.exe arg1 arg2 arg3
-    la3=.\myexe.exe arg1 arg2 arg3
+Lettore multimediale
+	sing=.\Click <MEDIA_PLAY_PAUSE>
+	dopp=.\Click <MEDIA_NEXT_TRACK>
+	pres=.\Click <MEDIA_PREV_TRACK>
 
 # profilo regExp
-+[a-zA-Z0-9-_. \t]*Visual Studio Code
-    la1=.\myexe.exe arg1 arg2 arg3
-    la2=.\myexe.exe arg1 arg2 arg3
-    la3=.\myexe.exe arg1 arg2 arg3
++YouTube
+	sing=.\Click <MEDIA_PLAY_PAUSE>
+	dopp=.\Click <LEFT>
+	pres=.\Click <F>
 
 # profilo className
-@Notepad
-    la1=.\myexe.exe arg1 arg2 arg3
-    la2=.\myexe.exe arg1 arg2 arg3
-    la3=.\myexe.exe arg1 arg2 arg3
+@PotPlayer64
+	sing=.\Click <MEDIA_PLAY_PAUSE>
+	dopp=.\Click <MEDIA_NEXT_TRACK>
+	pres=.\Click <MEDIA_PREV_TRACK>
 
 # profilo di DEFAULT
 DEFAULT
-    la1=info
-    la2=info
-    la3=info
+	sing=.\Click <SUPER>
+	dopp=.\Click <SUPER> <SHIFT> <S>
+	pres=explorer.exe shell:appsFolder\Microsoft.Office.OneNote_8wekyb3d8bbwe!microsoft.onenoteim
+
 ```
 
 Installazione
