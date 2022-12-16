@@ -7,7 +7,7 @@ finestra in primo piano e procede al confronto tra i nomi dei diversi profili.
 Trovata una corrispondenza esegue l'azione corrispondente alla lable passata da linea di comando.
 
 ### Profili e Comandi
-I profili vanno aggiunti nel file <code>config.txt</code>
+I profili vanno aggiunti nel file <code>config.conf</code>
 I profili sono formati da un nome e da delle opzioni indentate da del white space.
 Ogni azione ha una lable seguita da <code>=</code> e da un comando.
 
@@ -26,8 +26,8 @@ Il comando <code>info</code> visualizza una finestra contenente le informazioni 
 Nel file è possibile esprimere commenti con un <code>#</code> o un <code>;</code>
 all'inizio della riga.
 
-## Exemple config.txt
-```txt
+## Exemple config.conf
+```conf
 # profilo semplice
 Lettore multimediale
 	sing=.\Click <MEDIA_PLAY_PAUSE>
@@ -57,7 +57,7 @@ Installazione
 ==========
 per comodità si consiglia di creare dei collegamenti che avviano il programma con gli argomenti da linea di comando.
 1. scarica l'ultima versione [qui](https://github.com/Pech99/Run/raw/master/Run.exe)
-2. Creare una cartella contenente il programma, ed il file <code>config.txt</code>.
+2. Creare una cartella contenente il programma, ed il file <code>config.conf</code>.
 3. creare un collegamento al programma
 4. entrare nelle proprietà, sotto il tab <code>collegamento</code>
 5. modificare la voce <code>Destinazione</code> aggiungendo gli argomenti desidearati.

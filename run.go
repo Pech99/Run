@@ -16,7 +16,7 @@ import (
 //complile: go build -ldflags "-H windowsgui"
 //hiden console
 
-const confFile string = "./config.txt"
+const confFile string = "./config.conf"
 
 func main() {
 
