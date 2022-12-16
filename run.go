@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"regexp"
@@ -54,7 +53,7 @@ func main() {
 }
 
 func getComand(title string, class string, lable string) (string, error) {
-	file, err := ioutil.ReadFile(confFile)
+	file, err := os.ReadFile(confFile)
 	if err != nil {
 		return "", err
 	}
